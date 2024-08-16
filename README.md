@@ -1,8 +1,9 @@
+---
 # Host a Static Website on AWS - DevOps Project
 
 ## Project Overview
 
-This project demonstrates how to host a static HTML web application on Amazon Web Services (AWS) by utilizing various AWS services and infrastructure components. The project showcases a highly available, secure, and scalable web architecture deployed on EC2 instances within a Virtual Private Cloud (VPC). The project repository contains all the necessary scripts, configuration files, and documentation to replicate the deployment.
+This project demonstrates how to host a static HTML web application on Amazon Web Services (AWS) by utilising various AWS services and infrastructure components. The project showcases a highly available, secure, and scalable web architecture deployed on EC2 instances within a Virtual Private Cloud (VPC). The project repository contains all the necessary scripts, configuration files, and documentation to replicate the deployment.
 
 ## Architecture Diagram
 
@@ -54,24 +55,34 @@ The following startup script automates the setup of the Apache HTTP Server and d
 
 ```bash
 #!/bin/bash
+
 # Switch to the root user to gain full administrative privileges
 sudo su
+
 # Update all installed packages to their latest versions
 yum update -y
+
 # Install Apache HTTP Server
 yum install -y httpd
+
 # Change the current working directory to the Apache web root
 cd /var/www/html
+
 # Install Git
 yum install git -y
+
 # Clone the project GitHub repository to the current directory
 git clone https://github.com/MrStewartSalmon/host-a-static-website-on-aws.git
+
 # Copy all files, including hidden ones, from the cloned repository to the Apache web root
 cp -R host-a-static-website-on-aws/. /var/www/html/
+
 # Remove the cloned repository directory to clean up unnecessary files
 rm -rf host-a-static-website-on-aws
+
 # Enable the Apache HTTP Server to start automatically at system boot
 systemctl enable httpd
+
 # Start the Apache HTTP Server to serve web content
 systemctl start httpd
 ```
@@ -96,3 +107,5 @@ Set up Amazon SNS to receive notifications about activities within the Auto Scal
 This project provides a complete guide to hosting a static website on AWS with a focus on security, scalability, and high availability. By following the steps outlined in this repository, you can deploy a similar architecture and host your static website on AWS.
 
 For further details, please refer to the repository files and the documentation provided within.
+
+---
